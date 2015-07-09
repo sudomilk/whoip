@@ -48,7 +48,7 @@ $ cut -d ' ' -f 1 /var/log/apache2/site.access.log | sort | uniq | grep -v "100"
 104.148.164.118|United States|New York|East Hampton|Optimum Online
 ```
 
-Do normal unix parsing things to get the kind of information you care about too.
+The pipe-formatted output makes it easy for you to parse the output the way you want.
 
 ```
 $ cut -d ' ' -f 1 /var/log/apache2/site.access.log | sort | uniq | head -100 | whoip | cut -d \| -f 2 | sort | uniq -c | sort -nr | head
