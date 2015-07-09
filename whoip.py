@@ -1,5 +1,4 @@
 from multiprocessing import Pool
-import unicodedata
 import argparse
 import requests
 import sys
@@ -52,3 +51,7 @@ if len(ip_list) > 1:
     for line in result:
         if line is not None:
             print(format_geodict(line))
+else:
+    answer = getgeo(ip_list[0])
+    if answer is not None:
+        print(format_geodict(answer))
