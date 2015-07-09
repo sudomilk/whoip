@@ -9,9 +9,7 @@ def getgeo(ip):
     """Give this a string of an IPv4 or IPv6 address
     Returns a dict with geographical data about the ip
     """
-    headers = {
-        'User-Agent': 'whoip v2'
-        }
+    headers = {'User-Agent': 'whoip v2'}
     r = requests.get('http://ip-api.com/json/{ip}'.format(ip=ip))
     info = r.json()
     if r.status_code == 200:
