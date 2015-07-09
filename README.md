@@ -26,8 +26,8 @@ Or do a lot!
 
 ```
 $ cut -d ' ' -f 1 /var/log/apache2/site.access.log | sort | uniq | \
->  grep -v "100" | head -20 | \
->  whoip
+> grep -v "100" | head -20 | \
+> whoip
 101.127.227.217|Singapore||Singapore|StarHub Ltd
 101.169.127.252|Australia|Queensland|Brisbane|Telstra Internet
 101.169.42.149|Australia|Queensland|Gold Coast|Telstra Internet
@@ -54,8 +54,8 @@ The pipe-formatted output makes it easy for you to parse the output the way you 
 
 ```
 $ cut -d ' ' -f 1 /var/log/apache2/site.access.log | sort | uniq | \
->  head -100 | whoip | cut -d \| -f 2 | \
->  sort | uniq -c | sort -nr | head
+> head -100 | whoip | cut -d \| -f 2 | \
+> sort | uniq -c | sort -nr | head
      71 United States
      11 Australia
       5 South Africa
