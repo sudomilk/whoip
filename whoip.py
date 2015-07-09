@@ -24,7 +24,7 @@ def format_geodict(geodict):
     formatted = {'query': '-', 'country': '-', 'regionName': '-', 'city': '-', 'isp': '-'}
     for key in geodict:
         if key in keys:
-            formatted[key] = geodict[key]
+            formatted[key] = geodict[key].encode('UTF-8')
     result = '{query}|{country}|{regionName}|{city}|{isp}'.format(**formatted)
     return result
 
