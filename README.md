@@ -3,7 +3,7 @@ Lookup Geo Info about IPs on the command line
 
 ```
 whoip -h
-usage: geoip [-h] [ip]
+usage: whoip [-h] [ip]
 
 provides geo information for IPs
 
