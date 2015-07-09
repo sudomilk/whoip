@@ -1,3 +1,4 @@
+from multiprocessing import Pool
 import unicodedata
 import argparse
 import requests
@@ -30,7 +31,7 @@ def format_geodict(geodict):
 
 
 #Parse the arguments
-parser = argparse.ArgumentParser(description='provides geo information for IPs', prog='whoip')
+parser = argparse.ArgumentParser(description='provides geo information for IPs', prog='geoip')
 parser.add_argument('ip', nargs='?', default=sys.stdin, help='the ip to check; \
     this can also come from stdin as a single IP or a newline-separated series of IPs.')
 args = parser.parse_args()
@@ -41,6 +42,13 @@ if type(args.ip) == type('string'):
 else:
     ip_list = [item.rstrip('\n') for item in args.ip.readlines()]
 
-for ip in ip_list:
-    answer = format_geodict(getgeo(ip))
-    print(answer)
+#call getgeo on the list of strings, use mp if the string is a list > 1
+if len(ip_list) > 1:
+    if len(ip_list) in range(2,8):
+        pool = Pool(len(ip_list))
+    else:
+        pool = Pool(8)
+    result = pool.map(getgeo, ip_list)
+    for line in result:
+        if line is not None:
+            print(format_geodict(line))
