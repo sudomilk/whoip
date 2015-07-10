@@ -67,3 +67,7 @@ $ cut -d ' ' -f 1 /var/log/apache2/site.access.log | sort | uniq | \
       1 Indonesia
       1 India
 ```
+
+***
+
+Reminder: https://freegeoip.net/ can be used for less functionality if ip-api doesn't work out
