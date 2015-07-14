@@ -40,7 +40,7 @@ def format_geodict(geodict):
 
 
 #Parse the arguments
-parser = argparse.ArgumentParser(description='provides geo information for IPs', prog='geoip')
+parser = argparse.ArgumentParser(description='provides geo information for IPs', prog='whoip')
 parser.add_argument('ip', nargs='?', default=sys.stdin, help='the ip to check; \
     this can also come from stdin as a single IP or a newline-separated series of IPs.')
 args = parser.parse_args()
