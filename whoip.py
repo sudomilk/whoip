@@ -61,7 +61,7 @@ if len(ip_list) > 1:
         pool = Pool(len(ip_list))
     else:
         pool = Pool(8)
-        result = pool.map(getgeo, ip_list)
+    result = pool.map(getgeo, ip_list)
     for line in result:
         if line is not None:
             print(format_geodict(line))
